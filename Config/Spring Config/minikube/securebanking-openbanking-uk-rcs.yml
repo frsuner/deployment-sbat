@@ -21,8 +21,10 @@ common: # root key for all common 'securebanking-common-${library-name}' librari
   cors: # library name
     # allowed_origins: # CORS list allowed domains, to check if the origin header domain ends with any allowed origin.
       #- "*" # Allow all origins
-      #- localhost
-      #- forgerock.financial # valid for *.forgerock.financial
+      - localhost
+      - forgerock.financial # valid for *.forgerock.financial
+      - sbat.demo
+      - cdk.example.com #needs to be changed for production
     allowed_headers: accept-api-version, x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN, Id-Token # CORS allowed headers
     allowed_methods: GET, PUT, POST, DELETE, OPTIONS, PATCH # Allowed methods for preflight request
     allowed_credentials: true # Credentials accepted, default value true
@@ -35,8 +37,8 @@ logging:
 # identity platform properties
 identity-platform:
   client:
-    ig_fqdn: ${IG_FQDN:https://obdemo.dev.forgerock.financial} # IG Full Qualified Domain Name
-    identity_platform_fqdn: ${IDENTITY_PLATFORM_FQDN:https://iam.dev.forgerock.financial} # identity platform Full Qualified Domain NAme
+    ig_fqdn: ${IG_FQDN:https://tpp.sbat.demo} # IG Full Qualified Domain Name
+    identity_platform_fqdn: ${IDENTITY_PLATFORM_FQDN:https://cdk.example.com} # identity platform Full Qualified Domain NAme
     jwk_uri: ${identity-platform.client.identity_platform_fqdn}/am/oauth2/connect/jwk_uri # JWK keys endpoint
     contexts_api_client: # Context to build the URI to make a request against the repository endpoint to obtain the client object by clientId
       get: /repo/apiclients/@ClientId@ # http verb context
@@ -57,6 +59,8 @@ identity-platform:
     jwkms_request_method: POST # http verb to signing reponses
     jwkms_consent_signing_endpoint: /jwkms/rcs/signresponse # Consent signing context endpoint
 
+scheme: http #change to https with working certificates
+
 # Rcs properties
 rcs:
   # conditional for requests
@@ -65,7 +69,7 @@ rcs:
       jwt:
         must-be-validated: false # used in (ConsentDetailsApiController: default true)
   rs_fqdn: ${RS_FQDN:localhost} # RS Full Qualified Domain Name
-  schema: https # part of URI to build
+  schema: http # change to https with working certificates
 
 # used by RCS to call backoffice RS endpoints
 # @ See: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-rcs, Class: RsBackofficeConfiguration

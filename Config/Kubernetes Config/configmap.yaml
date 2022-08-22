@@ -7,13 +7,13 @@ data:
   IG_FQDN: tpp.sbat.demo
 
   # The domain name for the ForgeRock platform
-  IDENTITY_PLATFORM_FQDN: iam.sbat.demo
+  IDENTITY_PLATFORM_FQDN: cdk.example.com
 
   # The platform environment - one of the following
   # - CDK: (Cloud Developer's Kit) development identity platform
   # - CDM: CDM (Cloud Deployment Model)
   # - FIDC: FIDC (Forgerock Identity Cloud) identity cloud platform
-  ENVIRONMENT_TYPE: FIDC
+  ENVIRONMENT_TYPE: CDK
 
   # The domain name of the OB resource server
   RS_FQDN: rs.sbat.demo
@@ -22,7 +22,7 @@ data:
   RCS_FQDN: rcs.sbat.demo
 
   # The domain name of the Remote Consent Service backend
-  RCS_UI_FQDN: consent.sbat.demo
+  RCS_UI_FQDN: rcs-ui.sbat.demo
 
   # The realm to use in the ForgeRock platform
   AM_REALM: alpha
@@ -34,39 +34,39 @@ data:
 
   # OAuth2 client ID and secret for IG - needs to be created in platform
   IG_CLIENT_ID: ig-client
-  IG_CLIENT_SECRET: Passw0rd
+  IG_CLIENT_SECRET: P4ssw0rd
 
   # Service account for IG to authorise to platform - needs to be created in platform
   IG_IDM_USER: service_account.ig
-  IG_IDM_PASSWORD: Passw0rd
+  IG_IDM_PASSWORD: P4ssw0rd
 
-  # Agent ID and password for IG to talk to AM - needs to be created in platform
+  # Agent ID and P4ssw0rd for IG to talk to AM - needs to be created in platform
   IG_AGENT_ID: ig-agent
-  IG_AGENT_PASSWORD: Passw0rd
+  IG_AGENT_PASSWORD: P4ssw0rd
 
   # Signing secret used by IG to sign remote consent responses (deprecated)
-  IG_RCS_SECRET: Passw0rd
+  IG_RCS_SECRET: P4ssw0rd
 
   # Signing secret used by IG to sign software statements (deprecated)
-  IG_SSA_SECRET: Passw0rd
+  IG_SSA_SECRET: P4ssw0rd
 
   # Issuer of test certificates (deprecated)
   CERT_ISSUER: null-issuer
 
   # Keystore used for signing OB JWTs - installed in IG base directory
   ASPSP_KEYSTORE_PATH: /secrets/aspsp.test.p12
-  ASPSP_KEYSTORE_PASSWORD: Passw0rd
+  ASPSP_KEYSTORE_PASSWORD: P4ssw0rd
   ASPSP_JWTSIGNER_ALIAS: jwtsigner
   ASPSP_JWTSIGNER_KID: NTOZs+cHZSyO0p0AKPuHctl2ddc=
 
   # Keystore used for signing test OB certificates for TPP testing - installed in IG base directory
   CA_KEYSTORE_PATH: /secrets/ca.p12
   CA_KEYSTORE_TYPE: PKCS12
-  CA_KEYSTORE_STOREPASS: Passw0rd
-  CA_KEYSTORE_KEYPASS: Passw0rd
+  CA_KEYSTORE_STOREPASS: P4ssw0rd
+  CA_KEYSTORE_KEYPASS: P4ssw0rd
   CA_KEYSTORE_ALIAS: ca
 
   # Keystore with trusted CA certificates used to validate TPP client certificates - installed in IG base directory
   TRUST_KEYSTORE_PATH: /secrets/demo-ca.p12
   TRUST_KEYSTORE_TYPE: PKCS12
-  TRUST_KEYSTORE_STOREPASS: Passw0rd
+  TRUST_KEYSTORE_STOREPASS: P4ssw0rd

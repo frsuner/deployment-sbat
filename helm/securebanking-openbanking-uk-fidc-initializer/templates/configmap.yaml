@@ -1,0 +1,25 @@
+{{- if eq .Values.environment.type "CDK" }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: securebanking-platform-config
+data:
+  IG_FQDN: tpp.sbat.demo #IG FQDN where ForgeOps will try and connect
+  IDENTITY_PLATFORM_FQDN: cdk.example.com
+  # CDK value: (Cloud Developer's Kit) development identity platform
+  # CDM value: CDM (Cloud Deployment Model)
+  # FIDC value: FIDC (Forgerock Identity Cloud) identity cloud platform
+  ENVIRONMENT_TYPE: CDK
+  RS_FQDN: rs.sbat.demo # FQDN for the Resourse Server
+  RCS_FQDN: rcs.sbat.demo #FQDN for the Remote Consent Server
+  RCS_UI_FQDN: rcs-ui.sbat.demo #FQDN for the UI component of the Remote Consent Server
+  AM_REALM: alpha  #AOuth2 Realm used by Access Manager (AM)
+  IG_CLIENT_ID: ig-client # ID of account registered with AM for IG to use
+  IG_CLIENT_SECRET: P4ssw0rd # Password attached to the account registered with AM for IG
+  IG_IDM_USER: service_account.ig #Identity Manager (IDM) username registered
+  IG_IDM_PASSWORD: 0penBanking! #IDM password 
+  IG_AGENT_ID: ig-agent #IG Agent account ID registered with AM
+  IG_AGENT_PASSWORD: P4ssw0rd #IG Agent account password registered with IAM
+  IG_RCS_SECRET: P4ssw0rd #IG Remote Consent Server Secret Password 
+  IG_SSA_SECRET: P4ssw0rd  #IG SSA Secret 
+{{- end }}
